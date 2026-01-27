@@ -408,7 +408,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1rem;
-            box-sizing: border-box; /* 枠線を含めたサイズ計算 */
+            box-sizing: border-box;
         }
         .form-control:focus {
             border-color: var(--primary-color);
@@ -713,45 +713,35 @@
 
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_subject" value="【O!Sec】LPより新規のお問い合わせ">
+                    <input type="hidden" name="_subject" value="【O!Sec】LPよりお問い合わせ">
 
                     <div class="form-group">
-                        <label for="company">会社名・組織名</label>
-                        <input type="text" id="company" name="会社名" class="form-control" placeholder="例：株式会社〇〇、〇〇市役所">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="会社名" class="form-control" placeholder="例：株式会社沖縄電子">
                     </div>
 
                     <div class="form-group">
-                        <label for="name">ご担当者名 <span>必須</span></label>
-                        <input type="text" id="name" name="お名前" class="form-control" required placeholder="例：沖縄 太郎">
+                        <label for="name">担当者名 <span>必須</span></label>
+                        <input type="text" id="name" name="担当者名" class="form-control" required placeholder="例：宮城 啓一">
                     </div>
 
                     <div class="form-group">
                         <label for="email">メールアドレス <span>必須</span></label>
-                        <input type="email" id="email" name="メールアドレス" class="form-control" required placeholder="例：info@example.com">
+                        <input type="email" id="email" name="メールアドレス" class="form-control" required placeholder="例：mail@okinawadenshi.co.jp">
                     </div>
 
                     <div class="form-group">
                         <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="電話番号" class="form-control" placeholder="例：098-XXX-XXXX">
+                        <input type="tel" id="phone" name="電話番号" class="form-control" placeholder="例：098-898-2358">
                     </div>
 
                     <div class="form-group">
-                        <label for="type">ご相談種別</label>
-                        <select id="type" name="ご相談種別" class="form-control">
-                            <option value="設置可否の相談（無料）">設置可否の相談（無料）</option>
-                            <option value="見積もりの依頼">見積もりの依頼</option>
-                            <option value="資料請求">資料請求</option>
-                            <option value="その他">その他</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容</label>
-                        <textarea id="message" name="メッセージ" class="form-control" rows="5" placeholder="設置したい場所の状況や、ご希望の機器（カメラ、Wi-Fi等）についてご記入ください。"></textarea>
+                        <label for="message">相談内容</label>
+                        <textarea id="message" name="相談内容" class="form-control" rows="5" placeholder="ご質問や設置希望場所の詳細などをご記入ください"></textarea>
                     </div>
 
                     <div class="submit-area">
-                        <button type="submit" class="btn">上記の内容で送信する</button>
+                        <button type="submit" class="btn">送信する</button>
                     </div>
                 </form>
 

@@ -111,7 +111,8 @@
 
         /* --- Hero Section --- */
         .hero {
-            background: linear-gradient(rgba(0,51,102,0.6), rgba(0,51,102,0.6)), url('https://placehold.jp/1600x900.png?text=Okinawa+Solar+Image') center/cover no-repeat;
+            /* ここで hero.jpg を背景画像として指定しています */
+            background: linear-gradient(rgba(0,51,102,0.5), rgba(0,51,102,0.5)), url('hero.jpg') center/cover no-repeat;
             color: var(--white);
             padding: 100px 0;
             text-align: center;
@@ -120,7 +121,7 @@
             font-size: 2.5rem;
             margin-bottom: 20px;
             line-height: 1.4;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
         .hero h1 .highlight {
             color: var(--accent-color);
@@ -128,9 +129,10 @@
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         @media(min-width: 768px) {
-            .hero { padding: 150px 0; }
+            .hero { padding: 180px 0; }
             .hero h1 { font-size: 3.5rem; }
         }
 
@@ -410,6 +412,7 @@
     <header>
         <div class="container header-inner">
             <div class="logo">
+                <img src="image_8.png" alt="O!Sec Logo">
                 <span>O!Sec | 株式会社沖縄電子</span>
             </div>
             <div class="header-contact">
@@ -469,7 +472,7 @@
             
             <div class="feature">
                 <div class="feature-img">
-                    <img src="https://placehold.jp/600x400.png?text=Product+Image" alt="製品外観">
+                    <img src="feature1.jpg" alt="製品外観">
                 </div>
                 <div class="feature-text">
                     <h3>1. 完全独立電源・電気工事不要</h3>
@@ -479,7 +482,7 @@
 
             <div class="feature">
                 <div class="feature-img">
-                    <img src="https://placehold.jp/600x400.png?text=Durability+Image" alt="耐久性">
+                    <img src="feature2.jpg" alt="耐久性">
                 </div>
                 <div class="feature-text">
                     <h3>2. 沖縄仕様の重耐塩・耐風設計</h3>
@@ -489,7 +492,7 @@
 
             <div class="feature">
                 <div class="feature-img">
-                    <img src="https://placehold.jp/600x400.png?text=Devices+Image" alt="拡張性">
+                    <img src="feature3.jpg" alt="拡張性">
                 </div>
                 <div class="feature-text">
                     <h3>3. マルチデバイス対応（拡張性）</h3>
@@ -540,7 +543,7 @@
                 <div class="case-header">Case 1：【国道事務所】バイパス・公道の交通量調査</div>
                 <div class="case-body">
                     <div class="case-img">
-                        <img src="https://placehold.jp/400x300.png?text=Traffic+Survey" alt="交通量調査">
+                        <img src="case1.jpg" alt="交通量調査">
                     </div>
                     <div>
                         <p><strong>課題：</strong>商用電源が確保できないバイパス沿いで、長期間かつ高精度な交通量調査を行う必要があった。</p>
@@ -553,7 +556,7 @@
                 <div class="case-header">Case 2：【自治体】山間部の不法投棄監視</div>
                 <div class="case-body">
                     <div class="case-img">
-                        <img src="https://placehold.jp/400x300.png?text=Camera+Monitoring" alt="不法投棄監視">
+                        <img src="case2.jpg" alt="不法投棄監視">
                     </div>
                     <div>
                         <p><strong>課題：</strong>人目につかない山間部で粗大ゴミの不法投棄が多発していた。</p>
@@ -566,7 +569,7 @@
                 <div class="case-header">Case 3：【農業法人】マンゴー農園のスマート化</div>
                 <div class="case-body">
                     <div class="case-img">
-                        <img src="https://placehold.jp/400x300.png?text=Farm+Security" alt="農園管理">
+                        <img src="case3.jpg" alt="農園管理">
                     </div>
                     <div>
                         <p><strong>課題：</strong>離れた場所にあるビニールハウスの温度管理と、収穫前の盗難対策。</p>

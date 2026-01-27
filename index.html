@@ -30,6 +30,7 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; padding: 0; }
         img { max-width: 100%; height: auto; vertical-align: bottom; }
+        input, textarea, select, button { font-family: inherit; }
 
         .container {
             max-width: 1100px;
@@ -61,6 +62,8 @@
             font-weight: 700;
             transition: all 0.3s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             background-color: #e67e22;
@@ -90,10 +93,7 @@
             align-items: center;
             gap: 10px;
         }
-        /* ロゴ画像のスタイル調整 */
-        .logo img {
-            height: 40px; /* 必要に応じて調整 */
-        }
+        .logo img { height: 40px; }
         .header-contact {
             display: none;
         }
@@ -111,8 +111,7 @@
 
         /* --- Hero Section --- */
         .hero {
-            /* ここで hero.jpg を背景画像として指定しています */
-            background: linear-gradient(rgba(0,51,102,0.5), rgba(0,51,102,0.5)), url('hero.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,51,102,0.3), rgba(0,51,102,0.3)), url('hero.jpg') center/cover no-repeat;
             color: var(--white);
             padding: 100px 0;
             text-align: center;
@@ -364,38 +363,77 @@
             padding-left: 30px;
         }
 
-        /* --- CTA Footer --- */
-        .cta-footer {
+        /* --- Contact Form (Updated) --- */
+        .contact {
             background-color: var(--primary-color);
             color: var(--white);
             padding: 80px 0;
             text-align: center;
         }
-        .cta-box {
+        .contact .section-title { color: var(--white); }
+        .contact .section-title span { color: var(--accent-color); }
+        
+        .contact-box {
             background: var(--white);
             color: var(--text-color);
             padding: 40px;
             border-radius: 10px;
             display: inline-block;
-            width: 90%;
+            width: 100%;
             max-width: 800px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-align: left;
         }
-        .cta-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
             font-weight: bold;
+            color: var(--primary-color);
+        }
+        .form-group label span {
+            background: #e74c3c;
+            color: #fff;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box; /* 枠線を含めたサイズ計算 */
+        }
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .submit-area {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .phone-contact {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
         }
         .phone-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--primary-color);
-            margin: 10px 0;
-            line-height: 1;
+            margin: 5px 0;
         }
         @media(max-width: 600px) {
-            .phone-number { font-size: 1.8rem; }
+            .phone-number { font-size: 1.5rem; }
         }
 
         footer {
@@ -656,18 +694,68 @@
         </div>
     </section>
 
-    <section class="cta-footer" id="contact">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="cta-box">
-                <div class="cta-title">
+            <div class="section-title">
+                <span>Contact</span>
+                無料相談・お見積り
+            </div>
+            
+            <div class="contact-box">
+                <p style="margin-bottom: 20px;">
                     「電源がない」を理由に、あきらめないでください。<br>
-                    まずは無料の現地調査から。
-                </div>
-                <p>沖縄本島内、現地調査・お見積り無料</p>
-                
-                <a href="#" class="btn">まずは設置可否を無料相談する ＞</a>
-                
-                <div style="margin-top: 30px;">
+                    まずは無料の現地調査・シミュレーションから、お気軽にご相談ください。
+                </p>
+
+                <form action="https://formsubmit.co/mail@okinawadenshi.co.jp" method="POST">
+                    
+                    <input type="text" name="_honey" style="display:none">
+
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" value="【O!Sec】LPより新規のお問い合わせ">
+
+                    <div class="form-group">
+                        <label for="company">会社名・組織名</label>
+                        <input type="text" id="company" name="会社名" class="form-control" placeholder="例：株式会社〇〇、〇〇市役所">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">ご担当者名 <span>必須</span></label>
+                        <input type="text" id="name" name="お名前" class="form-control" required placeholder="例：沖縄 太郎">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span>必須</span></label>
+                        <input type="email" id="email" name="メールアドレス" class="form-control" required placeholder="例：info@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="電話番号" class="form-control" placeholder="例：098-XXX-XXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">ご相談種別</label>
+                        <select id="type" name="ご相談種別" class="form-control">
+                            <option value="設置可否の相談（無料）">設置可否の相談（無料）</option>
+                            <option value="見積もりの依頼">見積もりの依頼</option>
+                            <option value="資料請求">資料請求</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容</label>
+                        <textarea id="message" name="メッセージ" class="form-control" rows="5" placeholder="設置したい場所の状況や、ご希望の機器（カメラ、Wi-Fi等）についてご記入ください。"></textarea>
+                    </div>
+
+                    <div class="submit-area">
+                        <button type="submit" class="btn">上記の内容で送信する</button>
+                    </div>
+                </form>
+
+                <div class="phone-contact">
                     <p>お電話でのお問い合わせはこちら</p>
                     <div class="phone-number">098-898-2358</div>
                     <p><strong>株式会社沖縄電子 システムインフラ事業部</strong><br>

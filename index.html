@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O!Sec ソーラー・パワー・ステーション | 株式会社沖縄電子</title>
+    <meta name="description" content="沖縄の過酷な環境に挑む、完全独立型電源システム「O!Sec ソーラー・パワー・ステーション」。電源がない場所での防犯カメラ、Wi-Fi、調査機器の設置を可能にします。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- Base Settings --- */
+        :root {
+            --primary-color: #003366; /* 沖縄電子・O!Secイメージの濃紺 */
+            --accent-color: #f39c12; /* アクセントのオレンジ/ゴールド */
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding: 0; }
+        img { max-width: 100%; height: auto; vertical-align: bottom; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        .section-title span {
+            display: block;
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* --- Header --- */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* ロゴ画像のスタイル調整 */
+        .logo img {
+            height: 40px; /* 必要に応じて調整 */
+        }
+        .header-contact {
+            display: none;
+        }
+        @media(min-width: 768px) {
+            .header-contact {
+                display: block;
+                text-align: right;
+                font-size: 0.9rem;
+            }
+            .header-contact strong {
+                font-size: 1.2rem;
+                color: var(--primary-color);
+            }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,51,102,0.6), rgba(0,51,102,0.6)), url('https://placehold.jp/1600x900.png?text=Okinawa+Solar+Image') center/cover no-repeat;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero h1 .highlight {
+            color: var(--accent-color);
+        }
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        @media(min-width: 768px) {
+            .hero { padding: 150px 0; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+
+        /* --- Problems --- */
+        .problems {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 768px) {
+            .problem-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .problem-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+        .problem-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* --- Solution --- */
+        .solution {
+            padding: 80px 0;
+        }
+        .feature {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        @media(min-width: 768px) {
+            .feature { flex-direction: row; }
+            .feature:nth-child(even) { flex-direction: row-reverse; }
+            .feature-img { flex: 1; }
+            .feature-text { flex: 1; }
+        }
+        .feature-img img {
+            border-radius: 8px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .feature-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        .feature-list li::before {
+            content: "✔";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- Tech Specs --- */
+        .specs {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 80px 0;
+        }
+        .specs .section-title { color: var(--white); }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        @media(min-width: 768px) {
+            .specs-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .spec-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .spec-item h3 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- Cases --- */
+        .cases {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        .case-card {
+            background: var(--white);
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .case-header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 20px;
+            font-weight: bold;
+        }
+        .case-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        @media(min-width: 768px) {
+            .case-body { flex-direction: row; }
+            .case-img { width: 300px; flex-shrink: 0; }
+        }
+        .case-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* --- Reason --- */
+        .reason {
+            padding: 80px 0;
+        }
+        .reason-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        @media(min-width: 768px) {
+            .reason-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .reason-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .reason-num {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .reason-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .reason-item p {
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* --- Flow --- */
+        .flow {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        .flow-list {
+            counter-reset: flow-count;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        @media(min-width: 768px) {
+            .flow-list { flex-direction: row; justify-content: space-between; }
+        }
+        .flow-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            flex: 1;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .flow-item::before {
+            counter-increment: flow-count;
+            content: "STEP " counter(flow-count);
+            display: block;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .flow-item h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* --- FAQ --- */
+        .faq {
+            padding: 80px 0;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .faq-q {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        .faq-q::before {
+            content: "Q";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        .faq-a {
+            padding-left: 30px;
+        }
+
+        /* --- CTA Footer --- */
+        .cta-footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .cta-box {
+            background: var(--white);
+            color: var(--text-color);
+            padding: 40px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .cta-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .phone-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin: 10px 0;
+            line-height: 1;
+        }
+        @media(max-width: 600px) {
+            .phone-number { font-size: 1.8rem; }
+        }
+
+        footer {
+            background: #222;
+            color: #999;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>O!Sec | 株式会社沖縄電子</span>
+            </div>
+            <div class="header-contact">
+                お電話でのお問い合わせ<br>
+                <strong>098-898-2358</strong>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>
+                「電源がない」を、技術で解決する。<br>
+                <span class="highlight">O!Sec ソーラー・パワー・ステーション</span>
+            </h1>
+            <p>
+                沖縄で唯一の「電子パーツ専門店」として培った技術と経験を結集。<br>
+                防犯カメラ・Wi-Fi・各種センサー・無線機を、あらゆる場所に。
+            </p>
+            <a href="#contact" class="btn">まずは設置可否を無料相談する ＞</a>
+        </div>
+    </section>
+
+    <section class="problems">
+        <div class="container">
+            <div class="section-title">
+                <span>Problem</span>
+                こんなお悩みありませんか？
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>不法投棄・犯罪対策（自治体・警察様）</h3>
+                    <p>山間部や農道など、電源が引けない場所での不法投棄に困っている。証拠映像が欲しい。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>交通量調査（国道事務所・建設業者様）</h3>
+                    <p>道路工事や交通量調査のため、一時的に高機能なカメラを稼働させたいが、発電機は手間がかかる。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>農作物の盗難（農業法人様）</h3>
+                    <p>広大な農地やビニールハウスまで電源を引くコストが出ない。台風時の見回りも危険で負担だ。</p>
+                </div>
+                <div class="problem-card">
+                    <h3>災害時の通信確保（BCP対策）</h3>
+                    <p>停電時でも使えるWi-Fiスポットや、異なる無線機を繋ぐ中継拠点が欲しい。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <div class="section-title">
+                <span>Solution</span>
+                O!Sec（オーセック）の強み
+            </div>
+            
+            <div class="feature">
+                <div class="feature-img">
+                    <img src="https://placehold.jp/600x400.png?text=Product+Image" alt="製品外観">
+                </div>
+                <div class="feature-text">
+                    <h3>1. 完全独立電源・電気工事不要</h3>
+                    <p>ソーラーパネルとバッテリーが一体化。柱を立てるだけで、その日からそこが「監視拠点」や「Wi-Fiスポット」に早変わりします。数百万円かかることもある電源引き込み工事のコストと期間を「ゼロ」にします。</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-img">
+                    <img src="https://placehold.jp/600x400.png?text=Durability+Image" alt="耐久性">
+                </div>
+                <div class="feature-text">
+                    <h3>2. 沖縄仕様の重耐塩・耐風設計</h3>
+                    <p>電子パーツ専門店として1972年の創業以来、沖縄の「塩」と「風」と戦ってきました。高品質SGCC亜鉛メッキ鋼に樹脂粉末仕上げを施し、サビに強い部材を厳選。台風の暴風にも耐えうる強固な設計です。</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-img">
+                    <img src="https://placehold.jp/600x400.png?text=Devices+Image" alt="拡張性">
+                </div>
+                <div class="feature-text">
+                    <h3>3. マルチデバイス対応（拡張性）</h3>
+                    <p>お客様の目的に合わせて、機器を自由に実装可能です。</p>
+                    <ul class="feature-list">
+                        <li>防犯カメラ（監視・記録）</li>
+                        <li>Wi-Fiブリッジ（通信環境構築）</li>
+                        <li>産業用LTEルーター（遠隔監視）</li>
+                        <li>気象センサー・回転灯</li>
+                        <li><strong>魔法の箱（IP無線相互接続）</strong>：災害時の通信ハブとして</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs">
+        <div class="container">
+            <div class="section-title">
+                <span>Technical Specs</span>
+                プロを納得させる技術スペック
+            </div>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h3>MPPT制御で高効率充電</h3>
+                    <p>従来のPWM方式に比べ充電効率20%向上。曇天が多い沖縄の冬でも効率よく発電します。</p>
+                </div>
+                <div class="spec-item">
+                    <h3>スマートバッテリー</h3>
+                    <p>独立した保護回路により、1セル故障でもシステムダウンを防ぐ冗長設計。止まってはいけない現場を守ります。</p>
+                </div>
+                <div class="spec-item">
+                    <h3>過酷な環境に対応</h3>
+                    <p>インテリジェントヒーティング技術により、-30℃〜60℃で安定稼働。真夏の炎天下でも性能を維持。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cases">
+        <div class="container">
+            <div class="section-title">
+                <span>Case Study</span>
+                導入実績
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">Case 1：【国道事務所】バイパス・公道の交通量調査</div>
+                <div class="case-body">
+                    <div class="case-img">
+                        <img src="https://placehold.jp/400x300.png?text=Traffic+Survey" alt="交通量調査">
+                    </div>
+                    <div>
+                        <p><strong>課題：</strong>商用電源が確保できないバイパス沿いで、長期間かつ高精度な交通量調査を行う必要があった。</p>
+                        <p><strong>導入後：</strong>O!Secソーラー・パワー・ステーションにより、24時間安定した電源供給を実現。夜間の映像も鮮明に記録可能となり、精度の高い調査データを取得できました。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">Case 2：【自治体】山間部の不法投棄監視</div>
+                <div class="case-body">
+                    <div class="case-img">
+                        <img src="https://placehold.jp/400x300.png?text=Camera+Monitoring" alt="不法投棄監視">
+                    </div>
+                    <div>
+                        <p><strong>課題：</strong>人目につかない山間部で粗大ゴミの不法投棄が多発していた。</p>
+                        <p><strong>導入後：</strong>監視カメラとセンサーライトを設置。「見られている」という意識付けを行うことで、設置後すぐに投棄件数が激減しました。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">Case 3：【農業法人】マンゴー農園のスマート化</div>
+                <div class="case-body">
+                    <div class="case-img">
+                        <img src="https://placehold.jp/400x300.png?text=Farm+Security" alt="農園管理">
+                    </div>
+                    <div>
+                        <p><strong>課題：</strong>離れた場所にあるビニールハウスの温度管理と、収穫前の盗難対策。</p>
+                        <p><strong>導入後：</strong>ソーラー給電でWi-Fi環境を構築し、温度管理センサーと防犯カメラを同時稼働。スマホでハウス内の状況が確認できるようになり、見回りの負担も軽減しました。</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="reason">
+        <div class="container">
+            <div class="section-title">
+                <span>Why Choose Us</span>
+                沖縄電子が選ばれる理由
+            </div>
+            <div class="reason-grid">
+                <div class="reason-item">
+                    <span class="reason-num">01</span>
+                    <h3>沖縄唯一の<br>電子パーツ専門店DNA</h3>
+                    <p>私たちは単なる販売店ではありません。1972年創業、パーツ選定から回路設計まで知り尽くした技術者集団です。「なぜ壊れるか」を知っているから、「壊れないシステム」が作れます。</p>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-num">02</span>
+                    <h3>国家資格保有者による<br>万全の設計</h3>
+                    <p>「総合防犯設備士」「1級電気施工管理技士」「1級電気工事士」など、現場を知る有資格者が多数在籍。最適な構成を設計します。</p>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-num">03</span>
+                    <h3>平均年齢38歳<br>圧倒的なスピード</h3>
+                    <p>エンジニアチームの平均年齢は38歳。若さとフットワークの軽さを活かし、トラブル対応も迅速に駆けつけます。「売って終わり」にはしません。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flow">
+        <div class="container">
+            <div class="section-title">
+                <span>Flow</span>
+                導入の流れ
+            </div>
+            <div class="flow-list">
+                <div class="flow-item">
+                    <h4>お問い合わせ</h4>
+                </div>
+                <div class="flow-item">
+                    <h4>現地調査</h4>
+                    <small>日照・環境確認</small>
+                </div>
+                <div class="flow-item">
+                    <h4>ご提案・お見積り</h4>
+                </div>
+                <div class="flow-item">
+                    <h4>設置工事</h4>
+                    <small>最短即日完了</small>
+                </div>
+                <div class="flow-item">
+                    <h4>運用開始・保守</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">よくある質問</div>
+            
+            <div class="faq-item">
+                <div class="faq-q">曇りや雨の日が続いても止まりませんか？</div>
+                <div class="faq-a">はい、事前に無日照で何日間稼働させるかを計算してバッテリー容量を選定します。MPPT制御により、わずかな日差しでも効率よく充電します。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">台風のときは撤去が必要ですか？</div>
+                <div class="faq-a">基本的には撤去不要な強度で設置しますが、猛烈な台風の直撃が予想される場合は、パネル部分のみ取り外す等の対策をご案内する場合もございます。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">今持っているカメラや無線機を組み込むことはできますか？</div>
+                <div class="faq-a">はい、消費電力（W数）を確認させていただき、システムに組み込めるか診断いたします。お気軽にご相談ください。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-footer" id="contact">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-title">
+                    「電源がない」を理由に、あきらめないでください。<br>
+                    まずは無料の現地調査から。
+                </div>
+                <p>沖縄本島内、現地調査・お見積り無料</p>
+                
+                <a href="#" class="btn">まずは設置可否を無料相談する ＞</a>
+                
+                <div style="margin-top: 30px;">
+                    <p>お電話でのお問い合わせはこちら</p>
+                    <div class="phone-number">098-898-2358</div>
+                    <p><strong>株式会社沖縄電子 システムインフラ事業部</strong><br>
+                    (営業時間：平日 9:00〜17:30)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; Okinawa Denshi Co., Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

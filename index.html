@@ -201,6 +201,50 @@
             font-weight: bold;
         }
 
+        /* --- DC Technology Section (New) --- */
+        .dc-tech {
+            padding: 80px 0;
+            background-color: #eef2f6; /* 薄い青グレーでエリアを区分 */
+        }
+        .dc-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+        }
+        .dc-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+        .dc-content p {
+            text-align: left;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            display: inline-block; /* 中央寄せしつつ左揃え */
+        }
+        .dc-images-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 768px) {
+            .dc-images-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .dc-image-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .dc-image-item img:hover {
+            transform: scale(1.02);
+        }
+
+
         /* --- Tech Specs --- */
         .specs {
             background-color: var(--primary-color);
@@ -547,6 +591,34 @@
         </div>
     </section>
 
+    <section class="dc-tech">
+        <div class="container">
+            <div class="dc-content">
+                <h2>
+                    こだわりは「DC（直流）のまま使う」こと。<br>
+                    変換ロスをなくし、自然エネルギーを無駄にしません。
+                </h2>
+                <p>
+                    太陽光パネルで生まれる電気は「DC（直流）」、バッテリーに蓄えられる電気も「DC」です。しかし、一般的なシステムはこれを無理やり「AC（交流）」に変換するため、その過程で約10%〜20%ものエネルギーが損失として失われています。<br>
+                    <br>
+                    私たち沖縄電子は、この「もったいない」を見逃しません。<br>
+                    カメラも、ライトも、IoT機器も、すべてDCで直結する。変換ロスを極限までゼロに近づけることで、限られた自然エネルギーを効率よく使い切り、システムの稼働時間を最大化します。これが、技術者集団である私たちのこだわりです。
+                </p>
+            </div>
+            
+            <div class="dc-images-grid">
+                <div class="dc-image-item">
+                    <img src="cam3.jpg" alt="O!Sec 設置事例1">
+                </div>
+                <div class="dc-image-item">
+                    <img src="cam2.jpg" alt="O!Sec 設置事例2">
+                </div>
+                <div class="dc-image-item">
+                    <img src="park.jpg" alt="O!Sec 設置事例3">
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="specs">
         <div class="container">
             <div class="section-title">
@@ -708,6 +780,8 @@
                 </p>
 
                 <form action="https://formsubmit.co/mail@okinawadenshi.co.jp" method="POST">
+                    
+                    <input type="hidden" name="_next" value="https://okinawadenshi.github.io/solor_solution2/thanks.html">
                     
                     <input type="text" name="_honey" style="display:none">
 
